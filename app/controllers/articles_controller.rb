@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
     # this is a security feature to prevent malicious people
     # from crashing your app
     @article = Article.new(article_params)
+    @article.user = User.first
     if @article.save
       # notice or alert can go here. Notice is typcally used to tell the user things worked
       flash[:notice] = "Article was created successfully"
